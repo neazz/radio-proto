@@ -1,4 +1,4 @@
-// Сгенерировано scripts/export.mjs 21 октября 2026 г. в 23:44 из proto/static/resolve.js и proto/static/static.js — руками не править
+// Сгенерировано scripts/export.mjs 21 октября 2026 г. в 23:52 из proto/static/resolve.js и proto/static/static.js — руками не править
 (() => {
 // Адрес прототипа → файл статичной копии. Общий код для scripts/export.mjs (Node) и proto/static/static.js
 // (браузер: при экспорте вклеивается в начало _static/static.js, слово export вырезается).

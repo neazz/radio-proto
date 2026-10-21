@@ -49,12 +49,25 @@
     panel.focus({ preventScroll: true });
   };
 
-  const showBalloon = (group, x, y) => {
+  // Окно метки — как поповер: над меткой, а если сверху не хватает места — под ней; по горизонтали не выходит за края
+  // карты, высота — не больше свободного места (дальше прокрутка внутри). Раньше окно всегда стояло над меткой,
+  // и у меток у верхнего края карты его верх обрезался
+  const showBalloon = (group, pin) => {
     closePanel();
     balloonBody.innerHTML = group.map((p) => `<div class="dealers-map__item"><b>${p.name}</b>${p.html}</div>`).join('');
     balloon.hidden = false;
-    balloon.style.left = `${Math.min(Math.max(x, 18), 82)}%`;
-    balloon.style.top = `${y}%`;
+    const m = map.getBoundingClientRect();
+    const r = pin.getBoundingClientRect();
+    const px = r.left + r.width / 2 - m.left;
+    const py = r.top + r.height / 2 - m.top;
+    const edge = 8, gap = 16 + r.height / 2;   // отступ от края карты; от центра метки до окна
+    const w = balloon.offsetWidth;
+    const above = py - gap - edge, below = m.height - py - gap - edge;
+    const side = balloon.scrollHeight <= above || above >= below ? 'top' : 'bottom';
+    balloon.dataset.side = side;
+    balloon.style.maxHeight = `${Math.max(side === 'top' ? above : below, 96)}px`;
+    balloon.style.left = `${Math.min(Math.max(px, w / 2 + edge), m.width - w / 2 - edge)}px`;
+    balloon.style.top = `${side === 'top' ? py - gap : py + gap}px`;
   };
 
   const render = () => {
@@ -81,7 +94,7 @@
       pin.textContent = group.length > 1 ? group.length : '';
       pin.title = group.length > 1 ? `${group[0].city}: ${group.length}` : group[0].name;
       pin.dataset.ids = group.map((p) => p.id).join(',');
-      pin.addEventListener('click', () => (group.length > 1 ? showPanel(group, pin) : showBalloon(group, x, y)));
+      pin.addEventListener('click', () => (group.length > 1 ? showPanel(group, pin) : showBalloon(group, pin)));
       canvas.append(pin);
     });
   };
@@ -98,9 +111,9 @@
       view = { latMin: p.lat - 0.6, latMax: p.lat + 0.6, lonMin: p.lon - 1.2, lonMax: p.lon + 1.2 };
       render();
       const pin = [...canvas.children].find((el) => el.dataset.ids === String(p.id));
-      pin?.classList.add('is-active');
-      const { x, y } = project(p);
-      showBalloon([p], x, y);
+      if (!pin) return;
+      pin.classList.add('is-active');
+      showBalloon([p], pin);
     });
   });
 })();

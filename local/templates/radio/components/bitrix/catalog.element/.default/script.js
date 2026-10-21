@@ -16,22 +16,29 @@
       const j = Math.max(0, Math.min(slides.length - 1, i));
       track.scrollTo({ left: j * track.clientWidth, behavior: reduce.matches || e?.detail === 0 ? 'auto' : 'smooth' });
     };
-    // Колонка миниатюр слева от фото: не влезает по высоте — затухающий край и кнопка с той стороны, куда можно
-    // прокрутить; текущая миниатюра всегда в видимой части колонки
+    // Миниатюры: от 768 — колонкой слева от фото, на телефоне — строкой под фото. Не влезают — затухающий край
+    // с той стороны, куда можно прокрутить (в колонке — ещё и кнопка); текущая миниатюра всегда в видимой части
     const rail = gallery.querySelector('[data-thumbs-rail]');
     const list = rail?.querySelector('[data-thumbs]');
     const behavior = (e) => (reduce.matches || e?.detail === 0 ? 'auto' : 'smooth');
+    // ось ленты: колонка (top/height) или строка (left/width)
+    const axis = () => (getComputedStyle(list).flexDirection === 'row'
+      ? { pos: 'scrollLeft', size: 'clientWidth', total: 'scrollWidth', off: 'offsetLeft', len: 'offsetWidth', key: 'left' }
+      : { pos: 'scrollTop', size: 'clientHeight', total: 'scrollHeight', off: 'offsetTop', len: 'offsetHeight', key: 'top' });
     const syncRail = () => {
       if (!list) return;
-      rail.toggleAttribute('data-more-start', list.scrollTop > 2);
-      rail.toggleAttribute('data-more-end', list.scrollTop + list.clientHeight < list.scrollHeight - 2);
+      const a = axis();
+      rail.toggleAttribute('data-more-start', list[a.pos] > 2);
+      rail.toggleAttribute('data-more-end', list[a.pos] + list[a.size] < list[a.total] - 2);
     };
     const reveal = (t) => {
-      if (!list || !t || list.scrollHeight <= list.clientHeight) return;
-      const fade = 48;   // под затухающим краем миниатюра читается плохо — держим её ниже края
-      const top = t.offsetTop - list.offsetTop;
-      if (top - fade < list.scrollTop) list.scrollTo({ top: top - fade, behavior: behavior() });
-      else if (top + t.offsetHeight + fade > list.scrollTop + list.clientHeight) list.scrollTo({ top: top + t.offsetHeight + fade - list.clientHeight, behavior: behavior() });
+      if (!list || !t) return;
+      const a = axis();
+      if (list[a.total] <= list[a.size]) return;
+      const fade = 48;   // под затухающим краем миниатюра читается плохо — держим её дальше от края
+      const start = t[a.off] - list[a.off];
+      if (start - fade < list[a.pos]) list.scrollTo({ [a.key]: start - fade, behavior: behavior() });
+      else if (start + t[a.len] + fade > list[a.pos] + list[a.size]) list.scrollTo({ [a.key]: start + t[a.len] + fade - list[a.size], behavior: behavior() });
     };
     const page = (dir, e) => list?.scrollBy({ top: dir * (list.clientHeight - 80), behavior: behavior(e) });
     rail?.querySelector('[data-thumbs-up]')?.addEventListener('click', (e) => page(-1, e));

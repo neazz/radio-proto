@@ -517,20 +517,27 @@
     $('[data-lightbox-prev]', lb).addEventListener('click', () => show(current - 1));
     $('[data-lightbox-next]', lb).addEventListener('click', () => show(current + 1));
     $('[data-lightbox-close]', lb).addEventListener('click', () => lb.close());
-    lb.addEventListener('click', (e) => { if (e.target === lb || e.target.tagName === 'FIGURE') lb.close(); });
+    let swiped = false;
+    lb.addEventListener('click', (e) => {
+      if (swiped) { swiped = false; return; }   // после свайпа — не закрываем
+      if (e.target === lb || e.target.tagName === 'FIGURE') lb.close();
+    });
     lb.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') show(current - 1);
       if (e.key === 'ArrowRight') show(current + 1);
     });
-    // Свайп на таче
+    // Свайп пальцем и перетаскивание мышью — pointer-события: работают и на iPhone, и в Safari на компьютере
+    // (touch-событий там нет — в режиме адаптива свайп не работал). Кнопки свайп не начинают
     let x0 = null;
-    lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
-    lb.addEventListener('touchend', (e) => {
+    lb.addEventListener('pointerdown', (e) => { x0 = e.target.closest('button') ? null : e.clientX; });
+    lb.addEventListener('pointerup', (e) => {
       if (x0 === null) return;
-      const dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 40 && group.length > 1) show(current + (dx < 0 ? 1 : -1));
+      const dx = e.clientX - x0;
       x0 = null;
+      if (Math.abs(dx) > 40 && group.length > 1) { swiped = true; show(current + (dx < 0 ? 1 : -1)); setTimeout(() => { swiped = false; }, 0); }
     });
+    lb.addEventListener('pointercancel', () => { x0 = null; });
+    lb.addEventListener('dragstart', (e) => e.preventDefault());
   }
 
   // ---------------------------------------------------------------------------

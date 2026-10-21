@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="../../../local/templates/radio/images/favicon.svg">
 <link rel="stylesheet" href="../../../local/templates/radio/dist/main.css">
 <meta name="robots" content="noindex, nofollow">
-<script>window.PROTO_STATIC={"root":"../../../","role":"guest","url":"/catalog/archiv_produczii/kompleks-trassopoiskovyy-stalker-80-14/","cart":null,"built":"21 октября 2026 г. в 13:34"}</script>
+<script>window.PROTO_STATIC={"root":"../../../","role":"guest","url":"/catalog/archiv_produczii/kompleks-trassopoiskovyy-stalker-80-14/","cart":null,"built":"21 октября 2026 г. в 18:02"}</script>
 <script src="../../../_static/static.js"></script>
 </head>
 <body class="flex min-h-dvh flex-col">
@@ -486,7 +486,12 @@ transition: opacity var(--duration-fast) var(--ease-out), translate var(--durati
     root.querySelector('[data-proto-cookie]').addEventListener('click', () => {
         const banner = document.querySelector('[data-cookie]');
         if (!banner) return;
+        // Без анимации появления, как при первом заходе: в части версий Safari переход от display: none
+        // (@starting-style + allow-discrete) оставлял попап невидимым
+        banner.style.transition = 'none';
         banner.hidden = false;
+        banner.getBoundingClientRect();
+        requestAnimationFrame(() => banner.style.removeProperty('transition'));
         set(false);
         banner.querySelector('button')?.focus({ preventScroll: true });
     });
@@ -582,12 +587,12 @@ data-search-input aria-autocomplete="list" aria-controls="header-search-results"
 Дилерская сеть                </a>
 </li>
 <li class="top-menu__item" data-priority-item>
-<a href="../../../service/index.html" class="btn top-menu__link" data-variant="ghost"                   >
-Сервис                </a>
-</li>
-<li class="top-menu__item" data-priority-item>
 <a href="../../../contacts/index.html" class="btn top-menu__link" data-variant="ghost"                   >
 Контакты                </a>
+</li>
+<li class="top-menu__item" data-priority-item>
+<a href="../../../service/index.html" class="btn top-menu__link" data-variant="ghost"                   >
+Сервис                </a>
 </li>
 <li class="top-menu__item top-menu__more dropdown-menu" data-priority-more data-nav-menu data-dropdown-menu-initialized="true" hidden>
 <button type="button" class="btn top-menu__link" data-variant="ghost" id="top-menu-more-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="top-menu-more-popover" data-nav-trigger>
@@ -690,10 +695,10 @@ target="_blank" rel="nofollow noopener">
 <a href="../../../dealers/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Дилерская сеть</a>
 </li>
 <li>
-<a href="../../../service/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Сервис</a>
+<a href="../../../contacts/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Контакты</a>
 </li>
 <li>
-<a href="../../../contacts/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Контакты</a>
+<a href="../../../service/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Сервис</a>
 </li>
 </ul>
 </nav>
@@ -884,7 +889,7 @@ target="_blank" rel="nofollow noopener">
 </ul>
 </div>
 <nav aria-label="Меню в подвале">
-<ul class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm md:grid-cols-3">
+<ul class="grid grid-flow-col grid-cols-2 grid-rows-5 gap-x-6 gap-y-3 text-sm md:grid-cols-3 md:grid-rows-3">
 <li><a href="../../../about/index.html" class="hover:underline">О компании</a></li>
 <li><a href="../../../personal/index.html" class="hover:underline">Личный кабинет</a></li>
 <li><a href="../../../dealers/index.html" class="hover:underline">Дилерская сеть</a></li>

@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="../../../local/templates/radio/images/favicon.svg">
 <link rel="stylesheet" href="../../../local/templates/radio/dist/main.css">
 <meta name="robots" content="noindex, nofollow">
-<script>window.PROTO_STATIC={"root":"../../../","role":"dealer","url":"/personal/orders/","cart":null,"built":"21 октября 2026 г. в 13:34"}</script>
+<script>window.PROTO_STATIC={"root":"../../../","role":"dealer","url":"/personal/orders/","cart":null,"built":"21 октября 2026 г. в 18:02"}</script>
 <script src="../../../_static/static.js"></script>
 </head>
 <body class="flex min-h-dvh flex-col">
@@ -494,7 +494,12 @@ transition: opacity var(--duration-fast) var(--ease-out), translate var(--durati
     root.querySelector('[data-proto-cookie]').addEventListener('click', () => {
         const banner = document.querySelector('[data-cookie]');
         if (!banner) return;
+        // Без анимации появления, как при первом заходе: в части версий Safari переход от display: none
+        // (@starting-style + allow-discrete) оставлял попап невидимым
+        banner.style.transition = 'none';
         banner.hidden = false;
+        banner.getBoundingClientRect();
+        requestAnimationFrame(() => banner.style.removeProperty('transition'));
         set(false);
         banner.querySelector('button')?.focus({ preventScroll: true });
     });
@@ -602,12 +607,12 @@ aria-haspopup="true" aria-expanded="false" aria-controls="user-menu-popover" dat
 Дилерская сеть                </a>
 </li>
 <li class="top-menu__item" data-priority-item>
-<a href="../../service/index.html" class="btn top-menu__link" data-variant="ghost"                   >
-Сервис                </a>
-</li>
-<li class="top-menu__item" data-priority-item>
 <a href="../../contacts/index.html" class="btn top-menu__link" data-variant="ghost"                   >
 Контакты                </a>
+</li>
+<li class="top-menu__item" data-priority-item>
+<a href="../../service/index.html" class="btn top-menu__link" data-variant="ghost"                   >
+Сервис                </a>
 </li>
 <li class="top-menu__item top-menu__more dropdown-menu" data-priority-more data-nav-menu data-dropdown-menu-initialized="true" hidden>
 <button type="button" class="btn top-menu__link" data-variant="ghost" id="top-menu-more-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="top-menu-more-popover" data-nav-trigger>
@@ -710,10 +715,10 @@ target="_blank" rel="nofollow noopener">
 <a href="../../dealers/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Дилерская сеть</a>
 </li>
 <li>
-<a href="../../service/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Сервис</a>
+<a href="../../contacts/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Контакты</a>
 </li>
 <li>
-<a href="../../contacts/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Контакты</a>
+<a href="../../service/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Сервис</a>
 </li>
 </ul>
 </nav>
@@ -772,7 +777,7 @@ target="_blank" rel="nofollow noopener">
 <table class="table">
 <thead><tr><th>Заказ</th><th>Дата и время</th><th>Статус</th><th class="text-right">Сумма с НДС</th><th class="w-10"><span class="sr-only">Открыть</span></th></tr></thead>
 <tbody>
-<tr>
+<tr data-row-link>
 <td>
 <a href="1048/index.html" class="stretched-link font-medium">№ 1048</a>
 </td>
@@ -782,7 +787,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">957 004,60 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="1043/index.html" class="stretched-link font-medium">№ 1043</a>
 </td>
@@ -792,7 +797,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">1 497 989,26 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="1037/index.html" class="stretched-link font-medium">№ 1037</a>
 </td>
@@ -802,7 +807,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">4 323 545,80 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="1029/index.html" class="stretched-link font-medium">№ 1029</a>
 </td>
@@ -812,7 +817,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">1 942 057,00 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="1021/index.html" class="stretched-link font-medium">№ 1021</a>
 <span class="ml-2 text-xs text-muted-foreground">из 1С</span>                        </td>
@@ -822,7 +827,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">2 120 637,55 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="1012/index.html" class="stretched-link font-medium">№ 1012</a>
 </td>
@@ -832,7 +837,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">659 898,00 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="998/index.html" class="stretched-link font-medium">№ 998</a>
 <span class="ml-2 text-xs text-muted-foreground">из 1С</span>                        </td>
@@ -842,7 +847,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">2 778 132,15 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="987/index.html" class="stretched-link font-medium">№ 987</a>
 </td>
@@ -852,7 +857,7 @@ target="_blank" rel="nofollow noopener">
 <td class="text-right font-semibold tabular-nums">426 954,30 ₽</td>
 <td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
 </tr>
-<tr>
+<tr data-row-link>
 <td>
 <a href="975/index.html" class="stretched-link font-medium">№ 975</a>
 </td>
@@ -981,7 +986,7 @@ target="_blank" rel="nofollow noopener">
 </ul>
 </div>
 <nav aria-label="Меню в подвале">
-<ul class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm md:grid-cols-3">
+<ul class="grid grid-flow-col grid-cols-2 grid-rows-5 gap-x-6 gap-y-3 text-sm md:grid-cols-3 md:grid-rows-3">
 <li><a href="../../about/index.html" class="hover:underline">О компании</a></li>
 <li><a href="../index.html" class="hover:underline font-semibold">Личный кабинет</a></li>
 <li><a href="../../dealers/index.html" class="hover:underline">Дилерская сеть</a></li>

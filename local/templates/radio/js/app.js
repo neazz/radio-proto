@@ -726,6 +726,11 @@
     // Basecoat открывает список при фокусе и вводе; пустой не показываем (подсказок ещё нет — меньше двух букв)
     const closeIfEmpty = () => setTimeout(() => { if (!items.length) box.close?.(); }, 0);
     input.addEventListener('input', (e) => { if (e.isTrusted) render(); closeIfEmpty(); });
+    // Состояние прототипа «Подсказки Dadata» (?dadata=show): название уже набрано, подсказки открыты — видно,
+    // что выбор подставит ИНН, КПП и адрес
+    if (input.dataset.suggest === 'company' && new URLSearchParams(location.search).get('dadata') === 'show') {
+      setTimeout(() => { input.value = 'Энерго'; render(); input.click(); }, 0);
+    }
     input.addEventListener('focus', closeIfEmpty);
     input.addEventListener('click', closeIfEmpty);
     box.addEventListener('change', (e) => {
@@ -740,6 +745,55 @@
       }
     });
   });
+
+  // ---------------------------------------------------------------------------
+  // Строка таблицы — ссылка целиком (tr[data-row-link]: заказы в ЛК, состав заказа). Растянутая ссылка в таблице
+  // покрывает только свою ячейку (старый Safari не позиционирует относительно строки, см. components.css) —
+  // клик по остальной строке, мимо кнопок и других ссылок, открывает ссылку строки
+  // ---------------------------------------------------------------------------
+  document.addEventListener('click', (e) => {
+    const row = e.target.closest('tr[data-row-link]');
+    if (!row || e.defaultPrevented || e.target.closest('a, button, input, select, textarea, label, summary, [role="button"]')) return;
+    if (String(window.getSelection?.() || '')) return;   // выделяли текст в строке — не переходим
+    const link = row.querySelector('a.stretched-link');
+    if (!link) return;
+    if (e.metaKey || e.ctrlKey) window.open(link.href, '_blank', 'noopener');
+    else link.click();
+  });
+
+  // ---------------------------------------------------------------------------
+  // Ленты с прокруткой вбок — перетаскиванием мышью. На узком окне у каруселей нет стрелок, а мышь без трекпада
+  // вбок не крутит. Касания не трогаем (листаются пальцем), клик без сдвига — обычный клик; клик после
+  // перетаскивания гасим, чтобы не открыть карточку случайно
+  // ---------------------------------------------------------------------------
+  const DRAG_STRIPS = '.slider__track, .section-tiles--scroll, .product-gallery__track, .product-anchors__list, .personal-menu ul, .docs-menu ul, .search-chips__list';
+  let drag = null;
+  document.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0 || e.target.closest('input, textarea, select, [contenteditable]')) return;
+    const el = e.target.closest(DRAG_STRIPS);
+    if (el && el.scrollWidth > el.clientWidth + 2) drag = { el, id: e.pointerId, x: e.clientX, left: el.scrollLeft, moved: false };
+  });
+  document.addEventListener('pointermove', (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.x;
+    if (!drag.moved && Math.abs(dx) < 6) return;
+    if (!drag.moved) { drag.moved = true; drag.el.classList.add('is-dragging'); window.getSelection?.()?.removeAllRanges(); }
+    drag.el.scrollLeft = drag.left - dx;
+  });
+  const endDrag = () => {
+    if (!drag) return;
+    const { el, moved } = drag;
+    drag = null;
+    if (!moved) return;
+    el.classList.remove('is-dragging');
+    const stop = (ev) => { ev.preventDefault(); ev.stopPropagation(); };
+    window.addEventListener('click', stop, { capture: true, once: true });
+    setTimeout(() => window.removeEventListener('click', stop, { capture: true }), 0);
+  };
+  document.addEventListener('pointerup', endDrag);
+  document.addEventListener('pointercancel', endDrag);
+  // ссылки и картинки в ленте браузер иначе начинает тащить как файл — и перетаскивание ленты обрывается
+  document.addEventListener('dragstart', (e) => { if (e.target.closest?.(DRAG_STRIPS)) e.preventDefault(); });
 
   // ---------------------------------------------------------------------------
   // «Глаз» у пароля: показать / скрыть символы (ТЗ 5)

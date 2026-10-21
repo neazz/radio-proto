@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="../local/templates/radio/images/favicon.svg">
 <link rel="stylesheet" href="../local/templates/radio/dist/main.css">
 <meta name="robots" content="noindex, nofollow">
-<script>window.PROTO_STATIC={"root":"../","role":"guest","url":"/ui-kit/?PAGEN_1=12","cart":null,"built":"21 октября 2026 г. в 13:34"}</script>
+<script>window.PROTO_STATIC={"root":"../","role":"guest","url":"/ui-kit/?PAGEN_1=12","cart":null,"built":"21 октября 2026 г. в 18:02"}</script>
 <script src="../_static/static.js"></script>
 </head>
 <body class="flex min-h-dvh flex-col">
@@ -494,7 +494,12 @@ transition: opacity var(--duration-fast) var(--ease-out), translate var(--durati
     root.querySelector('[data-proto-cookie]').addEventListener('click', () => {
         const banner = document.querySelector('[data-cookie]');
         if (!banner) return;
+        // Без анимации появления, как при первом заходе: в части версий Safari переход от display: none
+        // (@starting-style + allow-discrete) оставлял попап невидимым
+        banner.style.transition = 'none';
         banner.hidden = false;
+        banner.getBoundingClientRect();
+        requestAnimationFrame(() => banner.style.removeProperty('transition'));
         set(false);
         banner.querySelector('button')?.focus({ preventScroll: true });
     });
@@ -590,12 +595,12 @@ data-search-input aria-autocomplete="list" aria-controls="header-search-results"
 Дилерская сеть                </a>
 </li>
 <li class="top-menu__item" data-priority-item>
-<a href="../service/index.html" class="btn top-menu__link" data-variant="ghost"                   >
-Сервис                </a>
-</li>
-<li class="top-menu__item" data-priority-item>
 <a href="../contacts/index.html" class="btn top-menu__link" data-variant="ghost"                   >
 Контакты                </a>
+</li>
+<li class="top-menu__item" data-priority-item>
+<a href="../service/index.html" class="btn top-menu__link" data-variant="ghost"                   >
+Сервис                </a>
 </li>
 <li class="top-menu__item top-menu__more dropdown-menu" data-priority-more data-nav-menu data-dropdown-menu-initialized="true" hidden>
 <button type="button" class="btn top-menu__link" data-variant="ghost" id="top-menu-more-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="top-menu-more-popover" data-nav-trigger>
@@ -698,10 +703,10 @@ target="_blank" rel="nofollow noopener">
 <a href="../dealers/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Дилерская сеть</a>
 </li>
 <li>
-<a href="../service/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Сервис</a>
+<a href="../contacts/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Контакты</a>
 </li>
 <li>
-<a href="../contacts/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Контакты</a>
+<a href="../service/index.html" class="btn w-full justify-start text-base" data-variant="ghost" data-size="lg">Сервис</a>
 </li>
 </ul>
 </nav>
@@ -975,24 +980,6 @@ data-subscribe-open data-product-id="7">
 <button type="button" class="btn cart-control__add" data-size="icon" aria-label="В корзину: Устройство испытательное ПН-20 со щупом" data-tooltip="В корзину" data-side="top" data-cart-add data-reveal>
 <svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../local/templates/radio/images/icons.svg#i-shopping-cart"></use></svg>                    </button>
 <div class="button-group" role="group" aria-label="Количество: Устройство испытательное ПН-20 со щупом" data-stepper data-reveal hidden><button type="button" class="btn" data-variant="outline" data-size="icon" aria-label="Уменьшить количество: Устройство испытательное ПН-20 со щупом" data-stepper-minus><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../local/templates/radio/images/icons.svg#i-minus"></use></svg></button><input type="text" class="input w-11 flex-none text-center font-semibold tabular-nums" inputmode="numeric" pattern="[0-9]*" value="1" aria-label="Количество: Устройство испытательное ПН-20 со щупом" data-stepper-input><button type="button" class="btn" data-variant="outline" data-size="icon" aria-label="Увеличить количество: Устройство испытательное ПН-20 со щупом" data-stepper-plus><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../local/templates/radio/images/icons.svg#i-plus"></use></svg></button></div>                </div>
-</div>
-</div>
-</article>
-</div>
-<div><article class="card product-card product-card--tile" data-product-card>
-<div class="product-card__media">
-<img src="../upload/mock/catalog/kompleks-trassopoiskovyy-stalker-15-14-lfp-preview.webp" alt="" width="600" height="600" loading="lazy">
-<span class="product-card__tags">
-<span class="badge" data-variant="secondary">Популярный товар</span>            </span>
-</div>
-<div class="product-card__body">
-<a href="../catalog/trassoiskateli/kompleks-trassopoiskovyy-stalker-15-14-lfp/index.html" class="product-card__name stretched-link" data-fullname="Комплекс трассопоисковый «Сталкер» 15-14 (LFP)">Комплекс трассопоисковый «Сталкер» 15-14 (LFP)</a>
-<div class="product-card__buy">
-<p class="product-card__price is-empty">Нет в наличии</p>
-<button type="button" class="btn product-card__subscribe" data-variant="secondary" data-size="sm"
-data-subscribe-open data-product-id="8">
-<svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../local/templates/radio/images/icons.svg#i-bell"></use></svg> Подписаться на товар
-</button>
 </div>
 </div>
 </article>
@@ -1289,7 +1276,7 @@ data-subscribe-open data-product-id="8">
 <p class="mt-2 text-muted-foreground">Новости, статьи, описания: заголовки, абзацы, маркированный список, таблица — на телефоне прокручивается вбок</p>
 <div class="prose mt-6 max-w-none">
 <p>Абзац текста. Длинные строки ограничены 70 знаками, таблицы и картинки занимают всю ширину блока.</p>
-<h2>Список и таблица</h2><ul><li>Устройство испытательное ПН-20 со щупом</li><li>Комплекс трассопоисковый «Сталкер» 15-14 (LFP)</li><li>Комплекс трассопоисковый «Сталкер» 80-24 (LFP)</li><li>Маркероискатель «Сталкер» ПМ-3 (запись/чтение, Li-Ion)</li><li>Вольтамперфазометр РС-30 с клещами КТИ-30</li></ul><table><thead><tr><th>Прибор</th><th>Код товара</th><th>Номер в госреестре</th><th>Межповерочный интервал</th><th>Цена с НДС</th></tr></thead><tbody><tr><td>Устройство испытательное ПН-20 со щупом</td><td>128109</td><td>—</td><td>—</td><td>131 415,35 ₽</td></tr><tr><td>Комплекс трассопоисковый «Сталкер» 15-14 (LFP)</td><td>138462</td><td>—</td><td>—</td><td>193 126,00 ₽</td></tr><tr><td>Комплекс трассопоисковый «Сталкер» 80-24 (LFP)</td><td>138117</td><td>—</td><td>—</td><td>312 076,00 ₽</td></tr><tr><td>Маркероискатель «Сталкер» ПМ-3 (запись/чтение, Li-Ion)</td><td>133957</td><td>—</td><td>—</td><td>277 123,00 ₽</td></tr><tr><td>Вольтамперфазометр РС-30 с клещами КТИ-30</td><td>127972</td><td>62558-15</td><td>24 месяца</td><td>91 370,07 ₽</td></tr></tbody></table>    </div>
+<h2>Список и таблица</h2><ul><li>Устройство испытательное ПН-20 со щупом</li><li>Комплекс трассопоисковый «Сталкер» 80-24 (LFP)</li><li>Маркероискатель «Сталкер» ПМ-3 (запись/чтение, Li-Ion)</li><li>Вольтамперфазометр РС-30 с клещами КТИ-30</li><li>Измеритель сопротивления заземления ИС-20/1 с клещами КТИ-20/1</li></ul><table><thead><tr><th>Прибор</th><th>Код товара</th><th>Номер в госреестре</th><th>Межповерочный интервал</th><th>Цена с НДС</th></tr></thead><tbody><tr><td>Устройство испытательное ПН-20 со щупом</td><td>128109</td><td>—</td><td>—</td><td>131 415,35 ₽</td></tr><tr><td>Комплекс трассопоисковый «Сталкер» 80-24 (LFP)</td><td>138117</td><td>—</td><td>—</td><td>312 076,00 ₽</td></tr><tr><td>Маркероискатель «Сталкер» ПМ-3 (запись/чтение, Li-Ion)</td><td>133957</td><td>—</td><td>—</td><td>277 123,00 ₽</td></tr><tr><td>Вольтамперфазометр РС-30 с клещами КТИ-30</td><td>127972</td><td>62558-15</td><td>24 месяца</td><td>91 370,07 ₽</td></tr><tr><td>Измеритель сопротивления заземления ИС-20/1 с клещами КТИ-20/1</td><td>134324</td><td>53720-13</td><td>24 месяца</td><td>85 186,50 ₽</td></tr></tbody></table>    </div>
 </section>
 <section class="wrap section">
 <section class="item price-list-block gap-4 p-5 md:p-8" data-variant="muted">
@@ -1333,7 +1320,7 @@ target="_blank" rel="nofollow noopener">
 </ul>
 </div>
 <nav aria-label="Меню в подвале">
-<ul class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm md:grid-cols-3">
+<ul class="grid grid-flow-col grid-cols-2 grid-rows-5 gap-x-6 gap-y-3 text-sm md:grid-cols-3 md:grid-rows-3">
 <li><a href="../about/index.html" class="hover:underline">О компании</a></li>
 <li><a href="../personal/index.html" class="hover:underline">Личный кабинет</a></li>
 <li><a href="../dealers/index.html" class="hover:underline">Дилерская сеть</a></li>

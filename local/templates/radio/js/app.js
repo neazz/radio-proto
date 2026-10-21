@@ -157,7 +157,8 @@
   const drawer = $('[data-drawer]');
   if (drawer) {
     // Выезд, анимация и закрытие по фону — Drawer из Basecoat, подпункты — details (Collapsible); здесь только открытие
-    $$('[data-drawer-open]').forEach((b) => b.addEventListener('click', () => drawer.showModal()));
+    // Фокус — на саму шторку, а не на первую ссылку (логотип): иначе вокруг логотипа кольцо фокуса. Tab идёт по пунктам
+    $$('[data-drawer-open]').forEach((b) => b.addEventListener('click', () => { drawer.showModal(); drawer.focus({ preventScroll: true }); }));
     // На десктопе выдвижное меню не нужно
     window.matchMedia('(min-width: 860px)').addEventListener('change', (e) => { if (e.matches && drawer.open) drawer.close(); });
   }
@@ -530,6 +531,44 @@
       if (Math.abs(dx) > 40 && group.length > 1) show(current + (dx < 0 ? 1 : -1));
       x0 = null;
     });
+  }
+
+  // ---------------------------------------------------------------------------
+  // Тултипы data-tooltip (стороны и выравнивание — data-side, data-align, как у Basecoat) — плавающим слоем поверх
+  // страницы: псевдоэлемент Basecoat обрезался краем карточки и ленты. Только мышью и только у кнопок без видимой
+  // подписи (у «В корзину» с подписью тултип не нужен); прячется при уходе, нажатии и прокрутке
+  // ---------------------------------------------------------------------------
+  if (canHover) {
+    let tip = null;
+    let owner = null;
+    const hideTip = () => { tip?.classList.remove('is-shown'); owner = null; };
+    const showTip = (el) => {
+      tip ??= Object.assign(document.createElement('div'), { className: 'ui-tooltip', role: 'tooltip' });
+      if (!tip.isConnected) document.body.append(tip);
+      tip.classList.remove('is-shown');
+      tip.textContent = el.dataset.tooltip;
+      const r = el.getBoundingClientRect();
+      const t = tip.getBoundingClientRect();
+      const side = el.dataset.side || 'top';
+      const align = el.dataset.align || 'center';
+      let x = align === 'start' ? r.left : align === 'end' ? r.right - t.width : r.left + (r.width - t.width) / 2;
+      let y = side === 'bottom' ? r.bottom + 6 : r.top - t.height - 6;
+      if (y < 8) y = r.bottom + 6;
+      x = Math.max(8, Math.min(x, window.innerWidth - t.width - 8));
+      tip.style.left = `${x}px`;
+      tip.style.top = `${y}px`;
+      requestAnimationFrame(() => tip.classList.add('is-shown'));
+      owner = el;
+    };
+    document.addEventListener('pointerover', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const el = e.target.closest?.('[data-tooltip]');
+      if (el === owner) return;
+      if (!el || el.innerText.trim()) { if (owner) hideTip(); return; }
+      showTip(el);
+    });
+    document.addEventListener('pointerdown', hideTip);
+    window.addEventListener('scroll', hideTip, { passive: true });
   }
 
   // ---------------------------------------------------------------------------

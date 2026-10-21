@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="../../../local/templates/radio/images/favicon.svg">
 <link rel="stylesheet" href="../../../local/templates/radio/dist/main.css">
 <meta name="robots" content="noindex, nofollow">
-<script>window.PROTO_STATIC={"root":"../../../","role":"yur","url":"/personal/addresses/?state=delete","cart":null,"built":"21 октября 2026 г. в 18:02"}</script>
+<script>window.PROTO_STATIC={"root":"../../../","role":"yur","url":"/personal/addresses/?state=delete","cart":null,"built":"21 октября 2026 г. в 19:55"}</script>
 <script src="../../../_static/static.js"></script>
 </head>
 <body class="flex min-h-dvh flex-col">
@@ -40,6 +40,7 @@
 <div class="mt-3 flex flex-wrap gap-1.5">
 <a href="index.html" class="proto-chip">Обычное</a>
 <a href="index.html" class="proto-chip">Список</a>
+<a href="state-add.html" class="proto-chip">Добавление</a>
 <a href="state-edit.html" class="proto-chip">Редактирование</a>
 <a href="state-delete.html" class="proto-chip is-active">Удаление</a>
 <a href="../../../role-fiz/personal/addresses/state-empty.html" class="proto-chip">Пусто</a>
@@ -199,12 +200,6 @@
 <a href="index.html" class="proto-row is-current">
 <span class="proto-status is-done" aria-label="собрана"></span>
 <span class="min-w-0 flex-1 truncate">Адреса доставки</span>
-</a>
-</li>
-<li data-proto-item data-proto-q="добавление адреса /personal/addresses/add/ личный кабинет тз 17.2">
-<a href="add/index.html" class="proto-row">
-<span class="proto-status is-done" aria-label="собрана"></span>
-<span class="min-w-0 flex-1 truncate">Добавление адреса</span>
 </a>
 </li>
 <li data-proto-item data-proto-q="список заказов /personal/orders/ личный кабинет тз 17.3, 18.3">
@@ -522,7 +517,8 @@ transition: opacity var(--duration-fast) var(--ease-out), translate var(--durati
 <header class="site-header" data-header>
 <div class="wrap site-header__bar">
 <button type="button" class="btn site-header__burger" data-variant="ghost" data-size="icon" aria-label="Открыть меню" aria-controls="site-drawer" data-drawer-open>
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-menu"></use></svg>        </button>
+<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-menu"></use></svg><span class="site-header__burger-label">Меню</span>
+</button>
 <a href="../../index.html" class="site-logo" aria-label="Радио-Сервис — на главную">
 <img src="../../../local/templates/radio/images/logo.png" alt="Радио-Сервис" width="250" height="50">
 </a>
@@ -641,7 +637,7 @@ aria-haspopup="true" aria-expanded="false" aria-controls="user-menu-popover" dat
 <li><a href="../../catalog/aksessu_electro_izm_prib/index.html" class="btn catalog-panel__link" data-variant="ghost">Аксессуары для электроизмерительных приборов</a></li>
 <li><a href="../../catalog/archiv_produczii/index.html" class="btn catalog-panel__link" data-variant="ghost">Архив продукции</a></li>
 </ul>
-<a href="../../catalog/index.html" class="btn mt-4" data-variant="outline">Весь каталог <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></a>
+<a href="../../catalog/index.html" class="btn mt-4">Весь каталог <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></a>
 </div>
 </div>
 <ul class="flex items-center gap-1 ml-auto shrink-0" aria-label="Мы в соцсетях">
@@ -664,7 +660,7 @@ target="_blank" rel="nofollow noopener">
 </div>
 </div>
 </header>
-<dialog class="drawer" data-side="left" id="site-drawer" aria-label="Меню" data-drawer>
+<dialog class="drawer" data-side="right" id="site-drawer" aria-label="Меню" data-drawer>
 <article>
 <header class="flex-row items-center justify-between border-b">
 <a href="../../index.html" class="site-logo" aria-label="Радио-Сервис — на главную">
@@ -750,7 +746,14 @@ target="_blank" rel="nofollow noopener">
 <div class="wrap pt-4 md:pt-6">
 <nav class="breadcrumb text-sm" aria-label="Хлебные крошки"><ol><li><a href="../../index.html" title="Главная">Главная</a></li><li aria-hidden="true"><svg class="shrink-0 size-3.5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></li><li><a href="../index.html" title="Личный кабинет">Личный кабинет</a></li><li aria-hidden="true"><svg class="shrink-0 size-3.5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></li><li><span aria-current="page" title="Адреса доставки">Адреса доставки</span></li></ol></nav>    <div class="personal-layout">
 <aside>
-<p class="mb-3 hidden text-sm text-muted-foreground lg:block">Ольга Кузнецова</p>
+<div class="mb-4 hidden items-center gap-3 lg:flex">
+<span class="avatar size-12 rounded-full" aria-hidden="true">
+<span class="bg-muted text-muted-foreground"><svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-user"></use></svg></span>
+</span>
+<div class="min-w-0">
+<p class="font-semibold break-words">Ольга Кузнецова</p>
+<p class="text-sm text-muted-foreground">Юридическое лицо</p>                </div>
+</div>
 <nav class="personal-menu" aria-label="Личный кабинет">
 <ul>
 <li>
@@ -765,6 +768,7 @@ target="_blank" rel="nofollow noopener">
 <a href="index.html" class="btn w-full justify-start" data-variant="secondary" aria-current="page">
 <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-map-pin"></use></svg> Адреса доставки                </a>
 </li>
+<li class="personal-menu__sep" aria-hidden="true"></li>
 <li>
 <a href="../../../index.html" class="btn w-full justify-start" data-variant="ghost">
 <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-log-out"></use></svg> Выход                </a>
@@ -772,40 +776,40 @@ target="_blank" rel="nofollow noopener">
 </ul>
 </nav>
 </aside>
-<div class="min-w-0">
+<div class="personal-content min-w-0">
 <h1 class="heading-1 mb-6">Адреса доставки</h1>        <ul class="grid gap-3">
 <li class="item" data-variant="outline">
 <figure><svg class="shrink-0 size-5 text-muted-foreground" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-map-pin"></use></svg></figure>
 <section class="min-w-60"><span data-title class="line-clamp-none font-normal">РФ, г. Екатеринбург, ул. Малышева, д. 51, оф. 1204</span></section>
-<aside class="flex-wrap gap-1">
-<button type="button" class="btn" data-variant="ghost" data-size="sm" onclick="document.getElementById('address-edit').showModal()">Изменить адрес</button>
-<button type="button" class="btn" data-variant="ghost" data-size="sm" onclick="document.getElementById('address-delete').showModal()">Удалить адрес</button>
+<aside class="flex-wrap gap-2">
+<button type="button" class="btn" data-variant="outline" data-size="sm" aria-label="Изменить адрес: РФ, г. Екатеринбург, ул. Малышева, д. 51, оф. 1204" onclick="document.getElementById('address-edit').showModal()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-pencil"></use></svg> Изменить</button>
+<button type="button" class="btn" data-variant="outline" data-size="sm" aria-label="Удалить адрес: РФ, г. Екатеринбург, ул. Малышева, д. 51, оф. 1204" onclick="document.getElementById('address-delete').showModal()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-trash-2"></use></svg> Удалить</button>
 </aside>
 </li>
 <li class="item" data-variant="outline">
 <figure><svg class="shrink-0 size-5 text-muted-foreground" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-map-pin"></use></svg></figure>
 <section class="min-w-60"><span data-title class="line-clamp-none font-normal">РФ, г. Нижний Тагил, ул. Индустриальная, д. 9</span></section>
-<aside class="flex-wrap gap-1">
-<button type="button" class="btn" data-variant="ghost" data-size="sm" onclick="document.getElementById('address-edit').showModal()">Изменить адрес</button>
-<button type="button" class="btn" data-variant="ghost" data-size="sm" onclick="document.getElementById('address-delete').showModal()">Удалить адрес</button>
+<aside class="flex-wrap gap-2">
+<button type="button" class="btn" data-variant="outline" data-size="sm" aria-label="Изменить адрес: РФ, г. Нижний Тагил, ул. Индустриальная, д. 9" onclick="document.getElementById('address-edit').showModal()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-pencil"></use></svg> Изменить</button>
+<button type="button" class="btn" data-variant="outline" data-size="sm" aria-label="Удалить адрес: РФ, г. Нижний Тагил, ул. Индустриальная, д. 9" onclick="document.getElementById('address-delete').showModal()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-trash-2"></use></svg> Удалить</button>
 </aside>
 </li>
 <li class="item" data-variant="outline">
 <figure><svg class="shrink-0 size-5 text-muted-foreground" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-map-pin"></use></svg></figure>
 <section class="min-w-60"><span data-title class="line-clamp-none font-normal">РФ, г. Каменск-Уральский, ул. Ленина, д. 120, оф. 3</span></section>
-<aside class="flex-wrap gap-1">
-<button type="button" class="btn" data-variant="ghost" data-size="sm" onclick="document.getElementById('address-edit').showModal()">Изменить адрес</button>
-<button type="button" class="btn" data-variant="ghost" data-size="sm" onclick="document.getElementById('address-delete').showModal()">Удалить адрес</button>
+<aside class="flex-wrap gap-2">
+<button type="button" class="btn" data-variant="outline" data-size="sm" aria-label="Изменить адрес: РФ, г. Каменск-Уральский, ул. Ленина, д. 120, оф. 3" onclick="document.getElementById('address-edit').showModal()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-pencil"></use></svg> Изменить</button>
+<button type="button" class="btn" data-variant="outline" data-size="sm" aria-label="Удалить адрес: РФ, г. Каменск-Уральский, ул. Ленина, д. 120, оф. 3" onclick="document.getElementById('address-delete').showModal()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-trash-2"></use></svg> Удалить</button>
 </aside>
 </li>
 </ul>
-<a href="add/index.html" class="btn mt-5" data-variant="outline"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-plus"></use></svg> Добавить адрес</a>
+<div class="mt-5"><button type="button" class="btn" data-variant="outline" onclick="document.getElementById('address-add').showModal()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-plus"></use></svg> Добавить адрес</button></div>
 <dialog class="dialog" id="address-edit" aria-labelledby="address-edit-title" onclick="if (event.target === this) this.close()">
 <div class="w-full sm:max-w-lg">
 <header><h2 id="address-edit-title">Редактирование адреса</h2></header>
 <section>
-<form class="form-grid" id="address-edit-form" novalidate data-validate>
-<div role="group" class="field " data-field><label for="ae-country">Страна</label><input class="input" type="text" id="ae-country" name="COUNTRY" readonly aria-describedby="ae-country-error" value="РФ"><p id="ae-country-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="ae-city">Населённый пункт <span class="text-destructive" aria-hidden="true">*</span></label><div class="combobox w-full" data-filter="manual" data-suggest-box><input type="text" id="ae-city" name="CITY" required autocomplete="off" data-suggest="city" aria-describedby="ae-city-error" value="г. Екатеринбург" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ae-city-listbox"><div id="ae-city-popover" data-popover aria-hidden="true"><div role="listbox" id="ae-city-listbox" aria-orientation="vertical"></div></div><input type="hidden"></div><p id="ae-city-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field is-wide" data-field><label for="ae-street">Улица <span class="text-destructive" aria-hidden="true">*</span></label><div class="combobox w-full" data-filter="manual" data-suggest-box><input type="text" id="ae-street" name="STREET" required autocomplete="off" data-suggest="street" aria-describedby="ae-street-error" value="ул. Малышева" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ae-street-listbox"><div id="ae-street-popover" data-popover aria-hidden="true"><div role="listbox" id="ae-street-listbox" aria-orientation="vertical"></div></div><input type="hidden"></div><p id="ae-street-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="ae-house">Дом <span class="text-destructive" aria-hidden="true">*</span></label><input class="input" type="text" id="ae-house" name="HOUSE" required autocomplete="address-line2" aria-describedby="ae-house-error" value="51"><p id="ae-house-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="ae-office">Квартира, офис</label><input class="input" type="text" id="ae-office" name="OFFICE" autocomplete="address-line3" aria-describedby="ae-office-error" value="1204"><p id="ae-office-error" role="alert" data-error data-reveal hidden></p></div>            </form>
+<form class="form-grid" id="address-edit-form" novalidate data-validate data-proto-next="/personal/addresses/">
+<div role="group" class="field " data-field><label for="ae-country">Страна</label><input class="input" type="text" id="ae-country" name="COUNTRY" readonly aria-describedby="ae-country-error" value="РФ"><p id="ae-country-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="ae-city">Населённый пункт <span class="text-destructive" aria-hidden="true">*</span></label><div class="combobox w-full" data-filter="manual" data-suggest-box><input type="text" id="ae-city" name="CITY" required autocomplete="off" data-suggest="city" aria-describedby="ae-city-error" autofocus value="г. Екатеринбург" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ae-city-listbox"><div id="ae-city-popover" data-popover aria-hidden="true"><div role="listbox" id="ae-city-listbox" aria-orientation="vertical"></div></div><input type="hidden"></div><p id="ae-city-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field is-wide" data-field><label for="ae-street">Улица <span class="text-destructive" aria-hidden="true">*</span></label><div class="combobox w-full" data-filter="manual" data-suggest-box><input type="text" id="ae-street" name="STREET" required autocomplete="off" data-suggest="street" aria-describedby="ae-street-error" value="ул. Малышева" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ae-street-listbox"><div id="ae-street-popover" data-popover aria-hidden="true"><div role="listbox" id="ae-street-listbox" aria-orientation="vertical"></div></div><input type="hidden"></div><p id="ae-street-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="ae-house">Дом <span class="text-destructive" aria-hidden="true">*</span></label><input class="input" type="text" id="ae-house" name="HOUSE" required autocomplete="address-line2" aria-describedby="ae-house-error" value="51"><p id="ae-house-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="ae-office">Квартира, офис</label><input class="input" type="text" id="ae-office" name="OFFICE" autocomplete="address-line3" aria-describedby="ae-office-error" value="1204"><p id="ae-office-error" role="alert" data-error data-reveal hidden></p></div>            </form>
 </section>
 <footer>
 <button type="button" class="btn" data-variant="outline" onclick="this.closest('dialog').close()">Отмена</button>
@@ -826,6 +830,20 @@ target="_blank" rel="nofollow noopener">
 </footer>
 </div>
 </dialog>
+<dialog class="dialog" id="address-add" aria-labelledby="address-add-title" onclick="if (event.target === this) this.close()">
+<div class="w-full sm:max-w-lg">
+<header><h2 id="address-add-title">Добавление нового адреса доставки</h2></header>
+<section>
+<form class="form-grid" id="address-add-form" novalidate data-validate data-proto-next="/personal/addresses/">
+<div role="group" class="field " data-field><label for="aa-country">Страна</label><input class="input" type="text" id="aa-country" name="COUNTRY" readonly aria-describedby="aa-country-error" value="РФ"><p id="aa-country-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="aa-city">Населённый пункт <span class="text-destructive" aria-hidden="true">*</span></label><div class="combobox w-full" data-filter="manual" data-suggest-box><input type="text" id="aa-city" name="CITY" required autocomplete="off" data-suggest="city" aria-describedby="aa-city-error" autofocus value="" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="aa-city-listbox"><div id="aa-city-popover" data-popover aria-hidden="true"><div role="listbox" id="aa-city-listbox" aria-orientation="vertical"></div></div><input type="hidden"></div><p id="aa-city-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field is-wide" data-field><label for="aa-street">Улица <span class="text-destructive" aria-hidden="true">*</span></label><div class="combobox w-full" data-filter="manual" data-suggest-box><input type="text" id="aa-street" name="STREET" required autocomplete="off" data-suggest="street" aria-describedby="aa-street-error" value="" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="aa-street-listbox"><div id="aa-street-popover" data-popover aria-hidden="true"><div role="listbox" id="aa-street-listbox" aria-orientation="vertical"></div></div><input type="hidden"></div><p id="aa-street-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="aa-house">Дом <span class="text-destructive" aria-hidden="true">*</span></label><input class="input" type="text" id="aa-house" name="HOUSE" required autocomplete="address-line2" aria-describedby="aa-house-error" value=""><p id="aa-house-error" role="alert" data-error data-reveal hidden></p></div>                <div role="group" class="field " data-field><label for="aa-office">Квартира, офис</label><input class="input" type="text" id="aa-office" name="OFFICE" autocomplete="address-line3" aria-describedby="aa-office-error" value=""><p id="aa-office-error" role="alert" data-error data-reveal hidden></p></div>            </form>
+</section>
+<footer>
+<button type="button" class="btn" data-variant="outline" onclick="this.closest('dialog').close()">Отмена</button>
+<button type="submit" class="btn" form="address-add-form" data-submit-ready>Сохранить</button>
+</footer>
+<button type="button" class="btn" data-variant="ghost" data-size="icon-sm" aria-label="Закрыть" onclick="this.closest('dialog').close()"><svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-x"></use></svg></button>
+</div>
+</dialog>
 </div>
 </div>
 </div>
@@ -842,19 +860,19 @@ target="_blank" rel="nofollow noopener">
 </div>
 <ul class="flex items-center gap-1 " aria-label="Мы в соцсетях">
 <li>
-<a href="https://vk.com/npf_radio_service" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon-sm" aria-label="ВКонтакте"
+<a href="https://vk.com/npf_radio_service" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon" aria-label="ВКонтакте"
 target="_blank" rel="nofollow noopener">
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-vk"></use></svg>            </a>
+<svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-vk"></use></svg>            </a>
 </li>
 <li>
-<a href="https://t.me/RadioServiceNPF" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon-sm" aria-label="Telegram"
+<a href="https://t.me/RadioServiceNPF" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon" aria-label="Telegram"
 target="_blank" rel="nofollow noopener">
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-tg"></use></svg>            </a>
+<svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-tg"></use></svg>            </a>
 </li>
 <li>
-<a href="#" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon-sm" aria-label="MAX"
+<a href="#" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon" aria-label="MAX"
 target="_blank" rel="nofollow noopener">
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-max"></use></svg>            </a>
+<svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-max"></use></svg>            </a>
 </li>
 </ul>
 </div>

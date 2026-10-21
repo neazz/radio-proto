@@ -111,6 +111,14 @@
     window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(pick); } }, { passive: true });
     pick();
 
+    // Меню прилипло под шапкой — is-stuck: шапка и меню становятся одной панелью, тень переходит под меню (components.css)
+    const nav = list?.closest('[data-anchors]');
+    if (nav) {
+      const stuck = () => nav.classList.toggle('is-stuck', nav.getBoundingClientRect().top <= parseFloat(getComputedStyle(nav).top) + 1);
+      window.addEventListener('scroll', () => requestAnimationFrame(stuck), { passive: true });
+      stuck();
+    }
+
     // Меню шире экрана — края затухают, видно, что его можно прокрутить
     if (list) {
       const edges = () => {

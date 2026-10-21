@@ -533,7 +533,7 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Подсказка с полным названием товара — только если название обрезано и есть мышь (ТЗ 9.2)
+  // Подсказка с полным названием (товар, файл) — только если название обрезано и есть мышь (ТЗ 9.2)
   // ---------------------------------------------------------------------------
   if (canHover) {
     let tip = null;
@@ -544,7 +544,9 @@
       const el = e.target.closest('[data-fullname]');
       const r = el?.getBoundingClientRect();
       const over = r && e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
-      if (!over || el.scrollHeight <= el.clientHeight + 1) { if (shownFor) hide(); return; }
+      // обрезано по высоте (название плитки) или по ширине (имя файла с троеточием посередине)
+      const cut = over && (el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1);
+      if (!cut) { if (shownFor) hide(); return; }
       if (shownFor === el) return;
       tip ??= Object.assign(document.createElement('div'), { className: 'name-tooltip', role: 'tooltip' });
       tip.textContent = el.dataset.fullname;
@@ -747,7 +749,28 @@
   });
 
   // ---------------------------------------------------------------------------
-  // Строка таблицы — ссылка целиком (tr[data-row-link]: заказы в ЛК, состав заказа). Растянутая ссылка в таблице
+  // «Скопировать» (data-copy="#блок"): строки dl блока — в буфер обмена текстом «Подпись: значение», первой строкой —
+  // data-copy-title; тост — data-copy-done. Без Clipboard API (старый браузер, http) — через скрытое поле и execCommand
+  // ---------------------------------------------------------------------------
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('[data-copy]');
+    if (!btn) return;
+    const box = document.querySelector(btn.dataset.copy);
+    if (!box) return;
+    const lines = $$('dl > div', box).map((row) => `${$('dt', row).textContent.trim()}: ${$('dd', row).textContent.trim()}`);
+    const text = [btn.dataset.copyTitle, ...lines].filter(Boolean).join('\n');
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      const ta = Object.assign(document.createElement('textarea'), { value: text });
+      ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.append(ta); ta.select(); document.execCommand('copy'); ta.remove();
+    }
+    window.radioToast(btn.dataset.copyDone || 'Скопировано');
+  });
+
+  // ---------------------------------------------------------------------------
+  // Строка таблицы — ссылка целиком (tr[data-row-link]: таблица заказов в ЛК). Растянутая ссылка в таблице
   // покрывает только свою ячейку (старый Safari не позиционирует относительно строки, см. components.css) —
   // клик по остальной строке, мимо кнопок и других ссылок, открывает ссылку строки
   // ---------------------------------------------------------------------------

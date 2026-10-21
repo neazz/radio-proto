@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="../../../local/templates/radio/images/favicon.svg">
 <link rel="stylesheet" href="../../../local/templates/radio/dist/main.css">
 <meta name="robots" content="noindex, nofollow">
-<script>window.PROTO_STATIC={"root":"../../../","role":"dealer","url":"/personal/orders/","cart":null,"built":"21 октября 2026 г. в 18:02"}</script>
+<script>window.PROTO_STATIC={"root":"../../../","role":"dealer","url":"/personal/orders/","cart":null,"built":"21 октября 2026 г. в 19:55"}</script>
 <script src="../../../_static/static.js"></script>
 </head>
 <body class="flex min-h-dvh flex-col">
@@ -199,12 +199,6 @@
 <a href="../addresses/index.html" class="proto-row">
 <span class="proto-status is-done" aria-label="собрана"></span>
 <span class="min-w-0 flex-1 truncate">Адреса доставки</span>
-</a>
-</li>
-<li data-proto-item data-proto-q="добавление адреса /personal/addresses/add/ личный кабинет тз 17.2">
-<a href="../addresses/add/index.html" class="proto-row">
-<span class="proto-status is-done" aria-label="собрана"></span>
-<span class="min-w-0 flex-1 truncate">Добавление адреса</span>
 </a>
 </li>
 <li data-proto-item data-proto-q="список заказов /personal/orders/ личный кабинет тз 17.3, 18.3">
@@ -522,7 +516,8 @@ transition: opacity var(--duration-fast) var(--ease-out), translate var(--durati
 <header class="site-header" data-header>
 <div class="wrap site-header__bar">
 <button type="button" class="btn site-header__burger" data-variant="ghost" data-size="icon" aria-label="Открыть меню" aria-controls="site-drawer" data-drawer-open>
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-menu"></use></svg>        </button>
+<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-menu"></use></svg><span class="site-header__burger-label">Меню</span>
+</button>
 <a href="../../index.html" class="site-logo" aria-label="Радио-Сервис — на главную">
 <img src="../../../local/templates/radio/images/logo.png" alt="Радио-Сервис" width="250" height="50">
 </a>
@@ -641,7 +636,7 @@ aria-haspopup="true" aria-expanded="false" aria-controls="user-menu-popover" dat
 <li><a href="../../catalog/aksessu_electro_izm_prib/index.html" class="btn catalog-panel__link" data-variant="ghost">Аксессуары для электроизмерительных приборов</a></li>
 <li><a href="../../catalog/archiv_produczii/index.html" class="btn catalog-panel__link" data-variant="ghost">Архив продукции</a></li>
 </ul>
-<a href="../../catalog/index.html" class="btn mt-4" data-variant="outline">Весь каталог <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></a>
+<a href="../../catalog/index.html" class="btn mt-4">Весь каталог <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></a>
 </div>
 </div>
 <ul class="flex items-center gap-1 ml-auto shrink-0" aria-label="Мы в соцсетях">
@@ -664,7 +659,7 @@ target="_blank" rel="nofollow noopener">
 </div>
 </div>
 </header>
-<dialog class="drawer" data-side="left" id="site-drawer" aria-label="Меню" data-drawer>
+<dialog class="drawer" data-side="right" id="site-drawer" aria-label="Меню" data-drawer>
 <article>
 <header class="flex-row items-center justify-between border-b">
 <a href="../../index.html" class="site-logo" aria-label="Радио-Сервис — на главную">
@@ -750,7 +745,14 @@ target="_blank" rel="nofollow noopener">
 <div class="wrap pt-4 md:pt-6">
 <nav class="breadcrumb text-sm" aria-label="Хлебные крошки"><ol><li><a href="../../index.html" title="Главная">Главная</a></li><li aria-hidden="true"><svg class="shrink-0 size-3.5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></li><li><a href="../index.html" title="Личный кабинет">Личный кабинет</a></li><li aria-hidden="true"><svg class="shrink-0 size-3.5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></li><li><span aria-current="page" title="Заказы">Заказы</span></li></ol></nav>    <div class="personal-layout">
 <aside>
-<p class="mb-3 hidden text-sm text-muted-foreground lg:block">Игорь Волков</p>
+<div class="mb-4 hidden items-center gap-3 lg:flex">
+<span class="avatar size-12 rounded-full" aria-hidden="true">
+<span class="bg-muted text-muted-foreground"><svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-user"></use></svg></span>
+</span>
+<div class="min-w-0">
+<p class="font-semibold break-words">Игорь Волков</p>
+<p class="text-sm text-muted-foreground">Дилер</p>                </div>
+</div>
 <nav class="personal-menu" aria-label="Личный кабинет">
 <ul>
 <li>
@@ -765,6 +767,7 @@ target="_blank" rel="nofollow noopener">
 <a href="../addresses/index.html" class="btn w-full justify-start" data-variant="ghost">
 <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-map-pin"></use></svg> Адреса доставки                </a>
 </li>
+<li class="personal-menu__sep" aria-hidden="true"></li>
 <li>
 <a href="../../../index.html" class="btn w-full justify-start" data-variant="ghost">
 <svg class="shrink-0 size-4" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-log-out"></use></svg> Выход                </a>
@@ -772,100 +775,100 @@ target="_blank" rel="nofollow noopener">
 </ul>
 </nav>
 </aside>
-<div class="min-w-0">
+<div class="personal-content min-w-0">
 <h1 class="heading-1 mb-6">Заказы</h1>        <div class="hidden md:block">
-<table class="table">
+<table class="table orders-table">
 <thead><tr><th>Заказ</th><th>Дата и время</th><th>Статус</th><th class="text-right">Сумма с НДС</th><th class="w-10"><span class="sr-only">Открыть</span></th></tr></thead>
 <tbody>
 <tr data-row-link>
 <td>
 <a href="1048/index.html" class="stretched-link font-medium">№ 1048</a>
 </td>
-<td class="text-muted-foreground">14.10.2026 10:12</td>
+<td class="text-muted-foreground">14.10.2026, 10:12</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-muted-foreground" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Новый</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="muted"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-circle-dot"></use></svg>Новый</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">957 004,60 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="1043/index.html" class="stretched-link font-medium">№ 1043</a>
 </td>
-<td class="text-muted-foreground">09.10.2026 15:40</td>
+<td class="text-muted-foreground">09.10.2026, 15:40</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-primary" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>На согласовании</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="neutral"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-hourglass"></use></svg>На согласовании</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">1 497 989,26 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="1037/index.html" class="stretched-link font-medium">№ 1037</a>
 </td>
-<td class="text-muted-foreground">02.10.2026 09:05</td>
+<td class="text-muted-foreground">02.10.2026, 09:05</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-warning" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Ожидает оплаты</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="warning"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-wallet"></use></svg>Ожидает оплаты</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">4 323 545,80 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="1029/index.html" class="stretched-link font-medium">№ 1029</a>
 </td>
-<td class="text-muted-foreground">24.09.2026 11:30</td>
+<td class="text-muted-foreground">24.09.2026, 11:30</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-success" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Оплачен</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="success"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-circle-check"></use></svg>Оплачен</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">1 942 057,00 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="1021/index.html" class="stretched-link font-medium">№ 1021</a>
 <span class="ml-2 text-xs text-muted-foreground">из 1С</span>                        </td>
-<td class="text-muted-foreground">15.09.2026 13:18</td>
+<td class="text-muted-foreground">15.09.2026, 13:18</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-primary" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>В работе</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="neutral"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-cog"></use></svg>В работе</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">2 120 637,55 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="1012/index.html" class="stretched-link font-medium">№ 1012</a>
 </td>
-<td class="text-muted-foreground">03.09.2026 16:47</td>
+<td class="text-muted-foreground">03.09.2026, 16:47</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-primary" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Частично отгружен</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="neutral"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-package-open"></use></svg>Частично отгружен</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">659 898,00 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="998/index.html" class="stretched-link font-medium">№ 998</a>
 <span class="ml-2 text-xs text-muted-foreground">из 1С</span>                        </td>
-<td class="text-muted-foreground">20.08.2026 08:55</td>
+<td class="text-muted-foreground">20.08.2026, 08:55</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-success" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Отгружен</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="success"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-truck"></use></svg>Отгружен</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">2 778 132,15 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="987/index.html" class="stretched-link font-medium">№ 987</a>
 </td>
-<td class="text-muted-foreground">06.08.2026 12:00</td>
+<td class="text-muted-foreground">06.08.2026, 12:00</td>
 <td>
-<span class="badge" data-variant="outline"><svg class="size-2! text-success" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Готов к самовывозу</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="success"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-package-check"></use></svg>Готов к самовывозу</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">426 954,30 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 <tr data-row-link>
 <td>
 <a href="975/index.html" class="stretched-link font-medium">№ 975</a>
 </td>
-<td class="text-muted-foreground">22.07.2026 17:21</td>
+<td class="text-muted-foreground">22.07.2026, 17:21</td>
 <td>
-<span class="badge text-muted-foreground" data-variant="outline"><svg class="size-2! text-destructive" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Отменен</span>                                                    </td>
+<span class="badge status-badge" data-variant="secondary" data-tone="destructive"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-circle-x"></use></svg>Отменен</span>                                                    </td>
 <td class="text-right font-semibold tabular-nums">280 389,58 ₽</td>
-<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg></td>
+<td class="text-right"><svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg></td>
 </tr>
 </tbody>
 </table>
@@ -874,84 +877,84 @@ target="_blank" rel="nofollow noopener">
 <a href="1048/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 1048</h2>
-<p>14.10.2026 10:12</p>
+<p>14.10.2026, 10:12</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">957 004,60 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-muted-foreground" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Новый</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="muted"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-circle-dot"></use></svg>Новый</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="1043/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 1043</h2>
-<p>09.10.2026 15:40</p>
+<p>09.10.2026, 15:40</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">1 497 989,26 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-primary" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>На согласовании</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="neutral"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-hourglass"></use></svg>На согласовании</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="1037/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 1037</h2>
-<p>02.10.2026 09:05</p>
+<p>02.10.2026, 09:05</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">4 323 545,80 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-warning" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Ожидает оплаты</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="warning"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-wallet"></use></svg>Ожидает оплаты</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="1029/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 1029</h2>
-<p>24.09.2026 11:30</p>
+<p>24.09.2026, 11:30</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">1 942 057,00 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-success" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Оплачен</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="success"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-circle-check"></use></svg>Оплачен</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="1021/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 1021 <span class="ml-1 text-xs font-normal text-muted-foreground">из 1С</span></h2>
-<p>15.09.2026 13:18</p>
+<p>15.09.2026, 13:18</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">2 120 637,55 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-primary" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>В работе</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="neutral"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-cog"></use></svg>В работе</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="1012/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 1012</h2>
-<p>03.09.2026 16:47</p>
+<p>03.09.2026, 16:47</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">659 898,00 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-primary" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Частично отгружен</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="neutral"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-package-open"></use></svg>Частично отгружен</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="998/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 998 <span class="ml-1 text-xs font-normal text-muted-foreground">из 1С</span></h2>
-<p>20.08.2026 08:55</p>
+<p>20.08.2026, 08:55</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">2 778 132,15 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-success" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Отгружен</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="success"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-truck"></use></svg>Отгружен</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="987/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 987</h2>
-<p>06.08.2026 12:00</p>
+<p>06.08.2026, 12:00</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">426 954,30 ₽</span>
-<span class="badge" data-variant="outline"><svg class="size-2! text-success" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Готов к самовывозу</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="success"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-package-check"></use></svg>Готов к самовывозу</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 <a href="975/index.html" class="item" data-variant="outline">
 <section>
 <h2>№ 975</h2>
-<p>22.07.2026 17:21</p>
+<p>22.07.2026, 17:21</p>
 </section>
 <aside class="flex-col items-end gap-1.5">
 <span class="font-semibold tabular-nums">280 389,58 ₽</span>
-<span class="badge text-muted-foreground" data-variant="outline"><svg class="size-2! text-destructive" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Отменен</span>                </aside>
-<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-arrow-right"></use></svg>            </a>
+<span class="badge status-badge" data-variant="secondary" data-tone="destructive"><svg class="shrink-0 size-3.5!" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-circle-x"></use></svg>Отменен</span>                </aside>
+<svg class="shrink-0 size-4 link-arrow" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-chevron-right"></use></svg>            </a>
 </div>
 </div>
 </div>
@@ -969,19 +972,19 @@ target="_blank" rel="nofollow noopener">
 </div>
 <ul class="flex items-center gap-1 " aria-label="Мы в соцсетях">
 <li>
-<a href="https://vk.com/npf_radio_service" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon-sm" aria-label="ВКонтакте"
+<a href="https://vk.com/npf_radio_service" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon" aria-label="ВКонтакте"
 target="_blank" rel="nofollow noopener">
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-vk"></use></svg>            </a>
+<svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-vk"></use></svg>            </a>
 </li>
 <li>
-<a href="https://t.me/RadioServiceNPF" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon-sm" aria-label="Telegram"
+<a href="https://t.me/RadioServiceNPF" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon" aria-label="Telegram"
 target="_blank" rel="nofollow noopener">
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-tg"></use></svg>            </a>
+<svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-tg"></use></svg>            </a>
 </li>
 <li>
-<a href="#" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon-sm" aria-label="MAX"
+<a href="#" class="btn text-muted-foreground hover:text-foreground" data-variant="ghost" data-size="icon" aria-label="MAX"
 target="_blank" rel="nofollow noopener">
-<svg class="shrink-0 size-5" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-max"></use></svg>            </a>
+<svg class="shrink-0 size-6" aria-hidden="true" focusable="false"><use href="../../../local/templates/radio/images/icons.svg#i-max"></use></svg>            </a>
 </li>
 </ul>
 </div>

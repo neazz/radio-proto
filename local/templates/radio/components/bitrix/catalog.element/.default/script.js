@@ -16,9 +16,33 @@
       const j = Math.max(0, Math.min(slides.length - 1, i));
       track.scrollTo({ left: j * track.clientWidth, behavior: reduce.matches || e?.detail === 0 ? 'auto' : 'smooth' });
     };
+    // Колонка миниатюр слева от фото: не влезает по высоте — затухающий край и кнопка с той стороны, куда можно
+    // прокрутить; текущая миниатюра всегда в видимой части колонки
+    const rail = gallery.querySelector('[data-thumbs-rail]');
+    const list = rail?.querySelector('[data-thumbs]');
+    const behavior = (e) => (reduce.matches || e?.detail === 0 ? 'auto' : 'smooth');
+    const syncRail = () => {
+      if (!list) return;
+      rail.toggleAttribute('data-more-start', list.scrollTop > 2);
+      rail.toggleAttribute('data-more-end', list.scrollTop + list.clientHeight < list.scrollHeight - 2);
+    };
+    const reveal = (t) => {
+      if (!list || !t || list.scrollHeight <= list.clientHeight) return;
+      const fade = 48;   // под затухающим краем миниатюра читается плохо — держим её ниже края
+      const top = t.offsetTop - list.offsetTop;
+      if (top - fade < list.scrollTop) list.scrollTo({ top: top - fade, behavior: behavior() });
+      else if (top + t.offsetHeight + fade > list.scrollTop + list.clientHeight) list.scrollTo({ top: top + t.offsetHeight + fade - list.clientHeight, behavior: behavior() });
+    };
+    const page = (dir, e) => list?.scrollBy({ top: dir * (list.clientHeight - 80), behavior: behavior(e) });
+    rail?.querySelector('[data-thumbs-up]')?.addEventListener('click', (e) => page(-1, e));
+    rail?.querySelector('[data-thumbs-down]')?.addEventListener('click', (e) => page(1, e));
+    list?.addEventListener('scroll', () => requestAnimationFrame(syncRail), { passive: true });
+    if (list) new ResizeObserver(syncRail).observe(list);
+    let current = -1;
     const update = () => {
       const i = index();
       thumbs.forEach((t, j) => t.setAttribute('aria-pressed', String(j === i)));
+      if (i !== current) { current = i; reveal(thumbs[i]); }
       if (prev) prev.disabled = i <= 0;
       if (next) next.disabled = i >= slides.length - 1;
     };

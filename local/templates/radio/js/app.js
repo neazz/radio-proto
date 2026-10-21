@@ -272,7 +272,7 @@
       // На остатке «+» неактивна, но остаётся в порядке Tab (aria-disabled, а не disabled — фокус не пропадает)
       plus.setAttribute('aria-disabled', String(q >= max));
       // Подсказка Basecoat — на всём степпере: у выключенной кнопки «+» нет наведения
-      if (q >= max) { stepper.dataset.tooltip = `Доступно ${max} шт.`; stepper.dataset.side = 'top'; } else delete stepper.dataset.tooltip;
+      delete stepper.dataset.tooltip;
     };
     add.addEventListener('click', (e) => {
       e.preventDefault();
@@ -286,7 +286,7 @@
     input.addEventListener('change', () => {
       let q = parseInt(input.value, 10);
       if (!q || q < 1) q = 1;
-      if (q > max) { q = max; window.radioToast('Больше нет в наличии', `Доступно ${max} шт.`, 'info'); }
+      if (q > max) q = max;
       cart.set(id, q);
     });
     document.addEventListener('cart:change', (e) => { if (String(e.detail.id) === String(id)) render(); });
@@ -305,7 +305,6 @@
       const btn = e.target.closest('[data-subscribe-open]');
       if (!btn) return;
       e.preventDefault();
-      $('[data-subscribe-product]', subscribe).textContent = `«${btn.dataset.productName}»`;
       $('[data-subscribe-product-id]', subscribe).value = btn.dataset.productId;
       subscribe.showModal();
     });
@@ -313,7 +312,7 @@
     $('[data-subscribe-form]', subscribe).addEventListener('proto:valid', (e) => {
       e.preventDefault();
       subscribe.close();
-      window.radioToast('Вы подписаны', 'Пришлём письмо, когда товар появится в наличии');
+      window.radioToast('Вы подписаны', '');
     });
   }
 

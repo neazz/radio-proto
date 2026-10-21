@@ -5,7 +5,7 @@
     form.addEventListener('proto:valid', (e) => {
       e.preventDefault();
       form.reset();
-      window.radioToast?.('Вы подписаны на рассылку', 'Будем присылать новинки, новости и акции');
+      window.radioToast?.('Вы подписаны на рассылку', '');
     });
   });
 })();

@@ -45,12 +45,6 @@
     $('[data-sum]').textContent = money(sum);
     $('[data-sum-row]').hidden = discount === 0;
     $('[data-discount-row]').hidden = discount === 0;
-    const markupRow = $('[data-markup-row]');
-    if (markupRow) {
-      const qty = items.reduce((n, it) => n + (it.price === null ? 0 : it.qty), 0);
-      markupRow.hidden = !add;
-      $('[data-markup-sum]').textContent = money(markup * qty);
-    }
     $('[data-discount]').textContent = '−' + money(discount);
     $('[data-total]').textContent = money(total);
     const vatEl = $('[data-vat-sum]');

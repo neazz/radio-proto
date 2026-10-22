@@ -735,9 +735,13 @@
     (box.dataset.reset || '').split(',').filter(Boolean).forEach((name) => { if (form.elements[name]) form.elements[name].value = ''; });
     form.submit();
   });
-  // Сброс формы не трогает скрытое поле списка — возвращаем выбранное при загрузке значение (data-default)
+  // Сброс формы не трогает скрытое поле списка — возвращаем выбранное при загрузке значение (data-default);
+  // у списка с подсказкой (data-placeholder) пустое значение — снова подсказка: select('') такого варианта не найдёт
   document.addEventListener('reset', (e) => {
-    setTimeout(() => e.target.querySelectorAll('div.select[data-default]').forEach((s) => s.select?.(s.dataset.default)), 0);
+    setTimeout(() => e.target.querySelectorAll('div.select[data-default]').forEach((s) => {
+      if (s.dataset.default === '' && s.dataset.placeholder) s.value = '';
+      else s.select?.(s.dataset.default);
+    }), 0);
   });
 
   // ---------------------------------------------------------------------------

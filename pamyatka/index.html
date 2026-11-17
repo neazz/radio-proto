@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Вход</title>
+<link rel="icon" href="data:,">
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#18181b;background:#f4f4f5}
+body{margin:0;min-height:100dvh;display:grid;place-items:center;padding:16px;box-sizing:border-box}
+.gate{visibility:hidden;width:100%;max-width:360px;background:#fff;border:1px solid #e4e4e7;border-radius:12px;padding:28px 24px;box-sizing:border-box;box-shadow:0 1px 2px rgb(0 0 0/.04)}
+.gate-ready .gate{visibility:visible}
+h1{margin:0 0 6px;font-size:20px;font-weight:600;line-height:1.3}
+p{margin:0 0 20px;font-size:14px;line-height:1.45;color:#71717a}
+label{display:block;margin-bottom:6px;font-size:14px;font-weight:500}
+input{width:100%;box-sizing:border-box;height:40px;padding:0 12px;border:1px solid #d4d4d8;border-radius:8px;font:inherit;font-size:16px;color:inherit;background:#fff}
+input:focus-visible{outline:2px solid #18181b;outline-offset:1px;border-color:#18181b}
+button{margin-top:16px;width:100%;height:40px;border:0;border-radius:8px;background:#18181b;color:#fff;font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+button:hover{background:#3f3f46}
+button:disabled{opacity:.6;cursor:default}
+.error{margin:12px 0 0;font-size:14px;color:#b91c1c}
+.error:empty{display:none}
+</style>
+</head>
+<body>
+<form class="gate" id="gate-form" autocomplete="on">
+<h1>Вход</h1>
+<p>Страница закрыта паролем. Пароль запомнится в этом браузере.</p>
+<label for="gate-password">Пароль</label>
+<input id="gate-password" name="password" type="password" autocomplete="current-password" required>
+<button type="submit" disabled>Войти</button>
+<p class="error" id="gate-error" role="alert" aria-live="polite"></p>
+</form>
+<script type="text/plain" id="proto-data">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</script>
+<script src="../_static/gate.js" data-root="../" data-salt="N8CAglLgseVYzJoVcF2GYQ==" data-iter="600000"></script>
+</body>
+</html>
